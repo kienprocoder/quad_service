@@ -24,4 +24,12 @@ public class UserService {
         }
         return BaseResponse.builder().status(ApiStatus.SUCCESS.getStatus()).data(lstUser).build();
     }
+
+    public BaseResponse<?> getUser() {
+        List<User> lstUser = userRepository.getuser();
+        if (lstUser.isEmpty()) {
+            return BaseResponse.builder().status(ApiStatus.BAD_REQUEST.getStatus()).build();
+        }
+        return BaseResponse.builder().status(ApiStatus.SUCCESS.getStatus()).data(lstUser).build();
+    }
 }

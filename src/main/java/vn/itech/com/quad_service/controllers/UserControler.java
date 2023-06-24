@@ -23,7 +23,7 @@ public class UserControler {
     @GetMapping("/user")
     public ResponseEntity<?> getAll() {
 
-        BaseResponse<?> baseResponse = userService.getAll();
+        BaseResponse<?> baseResponse = userService.getUser();
 
         return new ResponseEntity<>(baseResponse, HttpStatus.OK);
     }

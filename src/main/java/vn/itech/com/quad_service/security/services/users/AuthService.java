@@ -86,6 +86,7 @@ public class AuthService {
         user.setEmail(signUpRequest.getEmail());
         user.setAddress(signUpRequest.getAddress());
         user.setPhone(signUpRequest.getPhone());
+        user.setDepartment(signUpRequest.getDepartment());
         userRepository.save(user);
 
         return BaseResponse.builder().status(ApiStatus.SUCCESS.getStatus()).message("User registered successfully!").build();

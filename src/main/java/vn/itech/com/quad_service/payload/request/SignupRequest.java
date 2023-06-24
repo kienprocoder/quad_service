@@ -1,5 +1,7 @@
 package vn.itech.com.quad_service.payload.request;
 
+import vn.itech.com.quad_service.model.Department;
+
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Size;
@@ -25,6 +27,16 @@ public class SignupRequest {
 
     @Size(min = 0, max = 12)
     private String phone;
+
+    private Department department;
+
+    public Department getDepartment() {
+        return department;
+    }
+
+    public void setDepartment(Department department) {
+        this.department = department;
+    }
 
     public String getUsername() {
         return username;

@@ -1,11 +1,8 @@
 package vn.itech.com.quad_service.model;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
-
 import javax.persistence.*;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
-import javax.validation.constraints.Size;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -33,6 +30,10 @@ public class User {
     private String address;
 
     private String phone;
+
+    @ManyToOne (cascade=CascadeType.ALL)
+    @JoinColumn(name="dept_name")
+    private Department department;
 
     @ManyToMany(fetch = FetchType.LAZY)
     @JoinTable(  name = "user_roles",
@@ -103,5 +104,13 @@ public class User {
 
     public void setPhone(String phone) {
         this.phone = phone;
+    }
+
+    public Department getDepartment() {
+        return department;
+    }
+
+    public void setDepartment(Department department) {
+        this.department = department;
     }
 }
