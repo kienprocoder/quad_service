@@ -1,13 +1,21 @@
 package vn.itech.com.quad_service.model;
 
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.ToString;
+
 import javax.persistence.*;
 import java.sql.Timestamp;
 import java.util.Collection;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 @Entity
 @Table(name = "department")
+@Data
+@AllArgsConstructor
+@ToString
 public class Department {
 
     @Id
@@ -16,12 +24,13 @@ public class Department {
 
     private String name;
 
-    @OneToMany(targetEntity=User.class, mappedBy="department")
-    private Set<User> persons = new HashSet<>();
-
     private Timestamp createDate;
 
     private Timestamp updateDate;
+
+    @OneToMany(targetEntity = User.class,cascade = CascadeType.ALL)
+    @JoinColumn(name ="department_id",referencedColumnName = "id")
+    private List<User> userList;
 
     public Department() {
     }
@@ -42,14 +51,6 @@ public class Department {
         this.name = name;
     }
 
-    public Set<User> getPersons() {
-        return persons;
-    }
-
-    public void setPersons(Set<User> persons) {
-        this.persons = persons;
-    }
-
     public Timestamp getCreateDate() {
         return createDate;
     }
@@ -64,5 +65,13 @@ public class Department {
 
     public void setUpdateDate(Timestamp updateDate) {
         this.updateDate = updateDate;
+    }
+
+    public List<User> getUserList() {
+        return userList;
+    }
+
+    public void setUserList(List<User> userList) {
+        this.userList = userList;
     }
 }

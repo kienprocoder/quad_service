@@ -28,14 +28,14 @@ public class SignupRequest {
     @Size(min = 0, max = 12)
     private String phone;
 
-    private Department department;
+    private Long department_id;
 
-    public Department getDepartment() {
-        return department;
+    public Long getDepartment_id() {
+        return department_id;
     }
 
-    public void setDepartment(Department department) {
-        this.department = department;
+    public void setDepartment_id(Long department_id) {
+        this.department_id = department_id;
     }
 
     public String getUsername() {

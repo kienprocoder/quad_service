@@ -7,6 +7,7 @@ import vn.itech.com.quad_service.constant.enums.ApiStatus;
 import vn.itech.com.quad_service.model.ERole;
 import vn.itech.com.quad_service.model.Role;
 import vn.itech.com.quad_service.model.User;
+import vn.itech.com.quad_service.payload.request.DepartmentRequest;
 import vn.itech.com.quad_service.payload.request.SignupRequest;
 import vn.itech.com.quad_service.payload.response.BaseResponse;
 import vn.itech.com.quad_service.repository.RoleRepository;
@@ -86,7 +87,6 @@ public class AuthService {
         user.setEmail(signUpRequest.getEmail());
         user.setAddress(signUpRequest.getAddress());
         user.setPhone(signUpRequest.getPhone());
-        user.setDepartment(signUpRequest.getDepartment());
         userRepository.save(user);
 
         return BaseResponse.builder().status(ApiStatus.SUCCESS.getStatus()).message("User registered successfully!").build();

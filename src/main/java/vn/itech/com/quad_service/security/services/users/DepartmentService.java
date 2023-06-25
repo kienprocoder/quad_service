@@ -23,6 +23,11 @@ public class DepartmentService {
         this.departmentRepository = departmentRepository;
     }
 
+    /**
+     *
+     * @param departmentRequest
+     * @return
+     */
     public BaseResponse<?> registDepartment(DepartmentRequest departmentRequest) {
 
         Department department = new Department();
